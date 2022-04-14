@@ -1,0 +1,29 @@
+{% extends 'googledriveapp/base.html' %} {% block body %}
+{% for message in messages %}
+<h1>{{message}}</h1>
+{% endfor %}
+<br>
+<div class="container py-4 card" style="border: 2px solid grey; width: 300px; align-content: center;">
+  <form action="{% url 'login' %}" method="POST">
+    <div class="mb-3">
+    {% csrf_token %}
+      <label for="exampleInputEmail1" class="form-label">Username</label>
+      <input
+        type="text"
+        class="form-control "
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        name="username"
+          style="width: 250px;"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="password" style="width: 250px" />
+    </div>
+
+    <button type="submit" class="btn btn-success" style="display: block; margin: auto;">Login</button>
+  </form>
+</div>
+
+{% endblock body %}
